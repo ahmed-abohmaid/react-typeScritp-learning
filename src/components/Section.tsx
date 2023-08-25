@@ -1,8 +1,10 @@
-import { ReactNode } from 'react';
+import { SectionProps } from './types/Section.types';
 
-type SectionProps = { title?: string; children: ReactNode; msgCount: number };
-
-const Section = ({ title = 'Subheading', children, msgCount }: SectionProps) => {
+const Section = ({
+  title = 'Subheading',
+  children,
+  msgCount,
+}: SectionProps) => {
   return (
     <section>
       <h2>{title}</h2>

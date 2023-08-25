@@ -1,4 +1,4 @@
-type HeadingProps = { title: string };
+import { HeadingProps } from './types/Heading.types';
 
 const Heading = ({ title }: HeadingProps) => {
   return <h1>{title}</h1>;
