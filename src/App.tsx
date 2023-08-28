@@ -4,6 +4,27 @@ import Heading from './components/Heading';
 import Section from './components/Section';
 import { AuthUser } from './components/types/User.types';
 
+type counterAction = {
+  type: 'increment' | 'dcreament' | 'reset';
+  payload?: number;
+};
+
+const initialState = { count: 0 };
+
+function reducer(state: { count: number }, action: counterAction) {
+  switch (action.type) {
+    case 'increment':
+      return { count: state.count + (action.payload || 0) };
+    // To fix action.payload problem we can make this or make separate type for reset action which not need a payload and remove "?"
+    case 'dcreament':
+      return { count: state.count - (action.payload || 0) };
+    case 'reset':
+      return initialState;
+    default:
+      return state;
+  }
+}
+
 function App() {
   const [user, setUSer] = useState<AuthUser | null>(null);
 
